@@ -1,0 +1,437 @@
+/* ===============================================
+   MOBILE OPTIMIZATIONS & FIXES
+   =============================================== */
+
+/* Загальні мобільні налаштування */
+@media (max-width: 768px) {
+    /* Заборона горизонтального скролу */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Контейнер */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Заголовки */
+    h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Секції */
+    section {
+        padding: 2.5rem 0 !important;
+    }
+
+    /* Кнопки */
+    .btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .btn-outline,
+    .btn-white {
+        width: auto;
+        min-width: 150px;
+    }
+
+    /* Header Mobile */
+    .header-top {
+        padding: 0.5rem 0;
+    }
+
+    .header-top-content {
+        font-size: 0.75rem;
+    }
+
+    .header-main {
+        padding: 0.75rem 0;
+    }
+
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+
+    .logo-title {
+        font-size: 1.25rem;
+    }
+
+    .logo-subtitle {
+        font-size: 0.75rem;
+    }
+
+    /* Navigation Mobile */
+    .nav-menu {
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .nav-icon {
+        font-size: 1.5rem;
+    }
+
+    /* Hero Slider Mobile */
+    .hero-slider {
+        height: 400px !important;
+    }
+
+    .slide-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem;
+    }
+
+    .slide-text {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem;
+    }
+
+    .slider-controls {
+        padding: 0 0.75rem;
+    }
+
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem;
+    }
+
+    /* Features */
+    .features {
+        padding: 2rem 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+
+    /* News Cards */
+    .news-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .news-image {
+        height: 180px !important;
+    }
+
+    .news-icon {
+        font-size: 3rem !important;
+    }
+
+    .news-content {
+        padding: 1.5rem;
+    }
+
+    .news-title {
+        font-size: 1.1rem !important;
+    }
+
+    .news-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* Gallery Mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gallery-image {
+        height: 200px !important;
+    }
+
+    .gallery-icon {
+        font-size: 3rem !important;
+    }
+
+    /* Modal Mobile */
+    .modal {
+        padding: 0.5rem;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+        margin: auto;
+    }
+
+    .modal-image {
+        height: 200px !important;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem;
+    }
+
+    /* Stats Section */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem !important;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 3rem 0 !important;
+    }
+
+    .cta-content h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+    }
+
+    /* Contacts Page */
+    .contacts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .contact-item {
+        padding: 1.25rem;
+    }
+
+    .contact-icon {
+        font-size: 1.75rem;
+    }
+
+    .working-hours {
+        padding: 1.5rem;
+    }
+
+    .hours-list li {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 1rem 0;
+    }
+
+    /* About Page */
+    .about-section {
+        padding: 2rem !important;
+    }
+
+    .team-grid,
+    .values-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .team-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+
+    .value-card {
+        padding: 2rem;
+    }
+
+    .value-icon {
+        font-size: 3rem;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 3rem;
+    }
+
+    .footer-main {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .footer-logo {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .footer-desc {
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-title {
+        text-align: center;
+    }
+
+    .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links,
+    .footer-contacts {
+        text-align: center;
+    }
+
+    .footer-links a {
+        display: inline-block;
+    }
+
+    .footer-contacts li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        font-size: 0.875rem;
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Scroll to Top */
+    .scroll-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+
+    /* Form Elements */
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Запобігає зуму на iOS */
+    }
+
+    /* Tables */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Зображення */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Відео */
+    iframe,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero-slider {
+        height: 350px !important;
+    }
+
+    .slide-title {
+        font-size: 1.25rem !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .feature-card {
+        padding: 1.25rem;
+    }
+
+    .news-content {
+        padding: 1.25rem;
+    }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-slider {
+        height: 350px !important;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+    }
+}
+
+/* Touch Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Збільшення зони кліку для сенсорних екранів */
+    a, button, .clickable {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Прибираємо hover ефекти на touch devices */
+    .feature-card:hover,
+    .news-card:hover,
+    .gallery-item:hover {
+        transform: none;
+    }
+
+    /* Покращення кліку по навігації */
+    .nav-link {
+        padding: 1.25rem 1rem;
+    }
+}

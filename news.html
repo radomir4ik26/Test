@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новини - Бухгалтерія Онлайн">
+    <title>Новини - Бухгалтерія Онлайн</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- jQuery & jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-icon">₴</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="header-contacts">
+                        <span><i class="icon">📞</i> +380 44 123 45 67</span>
+                        <span><i class="icon">✉️</i> info@accounting.ua</span>
+                    </div>
+                    <div class="header-socials">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">₴</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Бухгалтерія</span>
+                            <span class="logo-subtitle">Професійний портал</span>
+                        </div>
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Головна</span>
+                    </a></li>
+                    <li><a href="about.html" class="nav-link">
+                        <span class="nav-icon">ℹ️</span>
+                        <span>Про сайт</span>
+                    </a></li>
+                    <li><a href="gallery.html" class="nav-link">
+                        <span class="nav-icon">🖼️</span>
+                        <span>Галерея</span>
+                    </a></li>
+                    <li><a href="news.html" class="nav-link active">
+                        <span class="nav-icon">📰</span>
+                        <span>Новини</span>
+                    </a></li>
+                    <li><a href="contacts.html" class="nav-link">
+                        <span class="nav-icon">📍</span>
+                        <span>Контакти</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- News Page Header -->
+    <section class="news-page-header">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h1 class="news-page-title">Новини</h1>
+                <p class="news-page-subtitle">Актуальна інформація про бухгалтерський облік та оподаткування з Liga:Zakon</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Filters -->
+    <section style="padding: 3rem 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="news-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-category="all">Всі новини</button>
+                <button class="filter-btn" data-category="Законодавство">⚖️ Законодавство</button>
+                <button class="filter-btn" data-category="ФОП">👤 ФОП</button>
+                <button class="filter-btn" data-category="Бізнес">💼 Бізнес</button>
+                <button class="filter-btn" data-category="Звітність">📊 Звітність</button>
+                <button class="filter-btn" data-category="Податки">💰 Податки</button>
+                <button class="filter-btn" data-category="Навчання">🎓 Навчання</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="news-grid" id="allNewsGrid">
+                <!-- News will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="footer-logo">
+                            <div class="logo-icon">₴</div>
+                            <span>Бухгалтерія Онлайн</span>
+                        </div>
+                        <p class="footer-desc">Професійний інформаційний портал для бухгалтерів України з актуальними новинами та корисними матеріалами.</p>
+                        <div class="footer-socials">
+                            <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">f</a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">in</a>
+                            <a href="https://t.me" target="_blank" class="social-icon" title="Telegram">t</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="footer-title">Швидкі посилання</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Головна</a></li>
+                            <li><a href="about.html">Про сайт</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                            <li><a href="news.html">Новини</a></li>
+                            <li><a href="contacts.html">Контакти</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="footer-title">Корисні ресурси</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://buh.ligazakon.net/" target="_blank" rel="noopener">Liga:Zakon Бухгалтерія</a></li>
+                            <li><a href="https://www.golovbuh.com.ua/" target="_blank" rel="noopener">Головбух</a></li>
+                            <li><a href="https://uteka.ua/" target="_blank" rel="noopener">UTEKA</a></li>
+                            <li><a href="https://buhgalter911.com/" target="_blank" rel="noopener">Бухгалтер 911</a></li>
+                            <li><a href="https://tax.gov.ua/" target="_blank" rel="noopener">ДПС України</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="footer-title">Контакти</h3>
+                        <ul class="footer-contacts">
+                            <li>
+                                <span class="contact-icon">📍</span>
+                                <span>м. Київ, вул. Хрещатик, 1</span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">📞</span>
+                                <span><a href="tel:+380441234567" style="color: inherit;">+380 44 123 45 67</a></span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">✉️</span>
+                                <span><a href="mailto:info@accounting.ua" style="color: inherit;">info@accounting.ua</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Бухгалтерія Онлайн. Всі права захищено.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Політика конфіденційності</a>
+                        <a href="#terms">Умови використання</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script>
+        // ===============================================
+        // NEWS PAGE FUNCTIONALITY
+        // ===============================================
+
+        $(document).ready(function() {
+            
+            // Render news cards with links
+            function renderNews(container, data, limit = null) {
+                const newsToShow = limit ? data.slice(0, limit) : data;
+                let html = '';
+
+                newsToShow.forEach((news, index) => {
+                    const newsLink = news.link || '#';
+                    const hasLink = news.link && news.link !== '#';
+                    
+                    html += `
+                        <div class="news-card variant-${news.variant}" data-aos="fade-up" data-aos-delay="${index * 50}">
+                            <div class="news-image">
+                                <div class="news-icon">${news.icon}</div>
+                            </div>
+                            <div class="news-content">
+                                <div class="news-meta">
+                                    <span class="news-date">📅 ${news.date}</span>
+                                    <span class="news-category">${news.category}</span>
+                                </div>
+                                <h3 class="news-title">${news.title}</h3>
+                                <p class="news-excerpt">${news.excerpt}</p>
+                                <div class="news-footer">
+                                    <span class="news-author">✍️ ${news.author}</span>
+                                    ${hasLink ? 
+                                        `<a href="${newsLink}" target="_blank" rel="noopener" class="news-read-more" onclick="event.stopPropagation()">
+                                            Читати на сайті →
+                                        </a>` :
+                                        `<span class="news-read-more" style="opacity: 0.5; cursor: default;">
+                                            Скоро буде доступно
+                                        </span>`
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                $(container).html(html);
+                
+                // Re-initialize AOS for new elements
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }
+
+            // Render all news
+            renderNews('#allNewsGrid', newsData);
+
+            // Filter news by category
+            $('.filter-btn').on('click', function() {
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                const category = $(this).data('category');
+                
+                if (category === 'all') {
+                    renderNews('#allNewsGrid', newsData);
+                } else {
+                    const filtered = newsData.filter(news => news.category === category);
+                    renderNews('#allNewsGrid', filtered);
+                }
+                
+                // Smooth scroll to news grid
+                $('html, body').animate({
+                    scrollTop: $('#allNewsGrid').offset().top - 150
+                }, 500);
+            });
+
+            // Click on news card to open link
+            $(document).on('click', '.news-card', function(e) {
+                if (!$(e.target).hasClass('news-read-more') && !$(e.target).closest('.news-read-more').length) {
+                    const link = $(this).find('.news-read-more').attr('href');
+                    if (link && link !== '#') {
+                        window.open(link, '_blank');
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

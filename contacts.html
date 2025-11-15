@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контакти - Бухгалтерія Онлайн">
+    <title>Контакти - Бухгалтерія Онлайн</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- jQuery & jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/mobile-fixes.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-icon">₴</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="header-contacts">
+                        <span><i class="icon">📞</i> +380 44 123 45 67</span>
+                        <span><i class="icon">✉️</i> info@accounting.ua</span>
+                    </div>
+                    <div class="header-socials">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">₴</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Бухгалтерія</span>
+                            <span class="logo-subtitle">Професійний портал</span>
+                        </div>
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Головна</span>
+                    </a></li>
+                    <li><a href="about.html" class="nav-link">
+                        <span class="nav-icon">ℹ️</span>
+                        <span>Про сайт</span>
+                    </a></li>
+                    <li><a href="gallery.html" class="nav-link">
+                        <span class="nav-icon">🖼️</span>
+                        <span>Галерея</span>
+                    </a></li>
+                    <li><a href="news.html" class="nav-link">
+                        <span class="nav-icon">📰</span>
+                        <span>Новини</span>
+                    </a></li>
+                    <li><a href="contacts.html" class="nav-link active">
+                        <span class="nav-icon">📍</span>
+                        <span>Контакти</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contacts Hero -->
+    <section class="contacts-hero">
+        <div class="container">
+            <div class="contacts-hero-content" data-aos="fade-up">
+                <h1>Зв'яжіться з нами</h1>
+                <p>Ми завжди раді відповісти на ваші запитання</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Content -->
+    <div class="contacts-content">
+        <div class="container">
+            <div class="contacts-grid">
+                <!-- Contact Info -->
+                <div class="contact-info" data-aos="fade-up">
+                    <h2>Контактна інформація</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Адреса</h3>
+                            <p>м. Київ, вул. Хрещатик, 1<br>Офіс 501, 5-й поверх</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Телефон</h3>
+                            <p><a href="tel:+380441234567">+380 44 123 45 67</a><br>
+                            <a href="tel:+380671234567">+380 67 123 45 67</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@accounting.ua">info@accounting.ua</a><br>
+                            <a href="mailto:support@accounting.ua">support@accounting.ua</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <h3>Соціальні мережі</h3>
+                            <p>
+                                <a href="#">Facebook</a> • 
+                                <a href="#">LinkedIn</a> • 
+                                <a href="#">Telegram</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="working-hours">
+                        <h3>Графік роботи</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Понеділок - П'ятниця</span>
+                                <span class="time">9:00 - 18:00</span>
+                            </li>
+                            <li>
+                                <span class="day">Субота</span>
+                                <span class="time">10:00 - 15:00</span>
+                            </li>
+                            <li>
+                                <span class="day">Неділя</span>
+                                <span class="time">Вихідний</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form" data-aos="fade-up" data-aos-delay="100">
+                    <h2>Напишіть нам</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ім'я *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Тема звернення *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Повідомлення *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Відправити повідомлення
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section" data-aos="fade-up">
+    <h2>Наше розташування</h2>
+    <div class="map-container" style="width:100%; height:450px;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.3542237842444!2d30.396158176059494!3d50.434502388512676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc75164b3243%3A0x1910af00a9994be0!2z0YPQuy4g0KHQtdC80YzQuCDQodGC0LXRiNC10L3QutC40LIsIDcsINCa0LjQtdCyLCAwMjAwMA!5e0!3m2!1sru!2sua!4v1760690956212!5m2!1sru!2sua" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer - Використовуйте цей код у всіх HTML файлах -->
+<footer class="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-logo">
+                        <div class="logo-icon">₴</div>
+                        <span>Бухгалтерія Онлайн</span>
+                    </div>
+                    <p class="footer-desc">Професійний інформаційний портал для бухгалтерів України з актуальними новинами та корисними матеріалами.</p>
+                    <div class="footer-socials">
+                        <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">f</a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">in</a>
+                        <a href="https://t.me" target="_blank" class="social-icon" title="Telegram">t</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="footer-title">Швидкі посилання</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Про сайт</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="footer-title">Корисні ресурси</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://buhgalter.com.ua/" target="_blank" rel="noopener">Журнал "Бухгалтер"</a></li>
+                        <li><a href="https://www.golovbuh.com.ua/" target="_blank" rel="noopener">Головбух</a></li>
+                        <li><a href="https://uteka.ua/" target="_blank" rel="noopener">Uteka - Бухоблік</a></li>
+                        <li><a href="https://buhgalter911.com/" target="_blank" rel="noopener">Бухгалтер 911</a></li>
+                        <li><a href="https://tax.gov.ua/" target="_blank" rel="noopener">ДПС України</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="footer-title">Контакти</h3>
+                    <ul class="footer-contacts">
+                        <li>
+                            <span class="contact-icon">📍</span>
+                            <span>м. Київ, вул. Хрещатик, 1</span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">📞</span>
+                            <span><a href="tel:+380441234567" style="color: inherit;">+380 44 123 45 67</a></span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉️</span>
+                            <span><a href="mailto:info@accounting.ua" style="color: inherit;">info@accounting.ua</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 Бухгалтерія Онлайн. Всі права захищено.</p>
+                <div class="footer-bottom-links">
+                    <a href="#privacy">Політика конфіденційності</a>
+                    <a href="#terms">Умови використання</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

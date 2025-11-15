@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Галерея подій - Бухгалтерія Онлайн">
+    <title>Галерея - Бухгалтерія Онлайн</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- jQuery & jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile-fixes.css">
+    
+    <style>
+        .gallery-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 0 4rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .gallery-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 0;
+        }
+
+        .gallery-content {
+            padding: 5rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .gallery-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            z-index: 2;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% {
+                transform: translate(-50%, -50%);
+            }
+            50% {
+                transform: translate(-50%, -60%);
+            }
+        }
+
+        .gallery-content-inner {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .gallery-date,
+        .gallery-location {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .gallery-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .gallery-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .gallery-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .gallery-view {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-view {
+            gap: 0.75rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-xl);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: var(--danger-color);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+        }
+
+        .modal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .modal-meta-item strong {
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-hero h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-image {
+                height: 220px;
+            }
+
+            .gallery-icon {
+                font-size: 3.5rem;
+            }
+
+            .modal {
+                padding: 1rem;
+            }
+
+            .modal-image {
+                height: 250px;
+            }
+
+            .modal-body {
+                padding: 2rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-icon">₴</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="header-contacts">
+                        <span><i class="icon">📞</i> +380 44 123 45 67</span>
+                        <span><i class="icon">✉️</i> info@accounting.ua</span>
+                    </div>
+                    <div class="header-socials">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">₴</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Бухгалтерія</span>
+                            <span class="logo-subtitle">Професійний портал</span>
+                        </div>
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Головна</span>
+                    </a></li>
+                    <li><a href="about.html" class="nav-link">
+                        <span class="nav-icon">ℹ️</span>
+                        <span>Про сайт</span>
+                    </a></li>
+                    <li><a href="gallery.html" class="nav-link active">
+                        <span class="nav-icon">🖼️</span>
+                        <span>Галерея</span>
+                    </a></li>
+                    <li><a href="news.html" class="nav-link">
+                        <span class="nav-icon">📰</span>
+                        <span>Новини</span>
+                    </a></li>
+                    <li><a href="contacts.html" class="nav-link">
+                        <span class="nav-icon">📍</span>
+                        <span>Контакти</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="container">
+            <div class="gallery-hero-content" data-aos="fade-up">
+                <h1>Наша галерея подій</h1>
+                <p>Фотозвіти з професійних заходів, конференцій та семінарів для бухгалтерів України</p>
+                <div style="margin-top: 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: 0.95rem;">
+                    <span>🎯 15+ заходів у 2025 році</span>
+                    <span>👥 5000+ учасників</span>
+                    <span>🏙️ 6 міст України</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <div class="gallery-content">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-image" id="modalImage"></div>
+            <div class="modal-body">
+                <div class="modal-meta" id="modalMeta"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-description" id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="footer-logo">
+                            <div class="logo-icon">₴</div>
+                            <span>Бухгалтерія Онлайн</span>
+                        </div>
+                        <p class="footer-desc">Професійний інформаційний портал для бухгалтерів України з актуальними новинами та корисними матеріалами.</p>
+                        <div class="footer-socials">
+                            <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">f</a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">in</a>
+                            <a href="https://t.me" target="_blank" class="social-icon" title="Telegram">t</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="footer-title">Швидкі посилання</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Головна</a></li>
+                            <li><a href="about.html">Про сайт</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                            <li><a href="news.html">Новини</a></li>
+                            <li><a href="contacts.html">Контакти</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="footer-title">Корисні ресурси</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://buh.ligazakon.net/" target="_blank" rel="noopener">Liga:Zakon Бухгалтерія</a></li>
+                            <li><a href="https://www.golovbuh.com.ua/" target="_blank" rel="noopener">Головбух</a></li>
+                            <li><a href="https://uteka.ua/" target="_blank" rel="noopener">UTEKA</a></li>
+                            <li><a href="https://buhgalter911.com/" target="_blank" rel="noopener">Бухгалтер 911</a></li>
+                            <li><a href="https://tax.gov.ua/" target="_blank" rel="noopener">ДПС України</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="footer-title">Контакти</h3>
+                        <ul class="footer-contacts">
+                            <li>
+                                <span class="contact-icon">📍</span>
+                                <span>м. Київ, вул. Хрещатик, 1</span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">📞</span>
+                                <span><a href="tel:+380441234567" style="color: inherit;">+380 44 123 45 67</a></span>
+                            </li>
+                            <li>
+                                <span class="contact-icon">✉️</span>
+                                <span><a href="mailto:info@accounting.ua" style="color: inherit;">info@accounting.ua</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Бухгалтерія Онлайн. Всі права захищено.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Політика конфіденційності</a>
+                        <a href="#terms">Умови використання</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script>
+        // Gallery functionality
+        $(document).ready(function() {
+            // Render gallery items
+            function renderGallery() {
+                let html = '';
+                
+                galleryData.forEach((item, index) => {
+                    html += `
+                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="${index * 50}" onclick="openModal(${item.id})">
+                            <div class="gallery-image" style="background: ${item.gradient};">
+                                <div class="gallery-icon">${item.icon}</div>
+                            </div>
+                            <div class="gallery-content-inner">
+                                <div class="gallery-meta">
+                                    <span class="gallery-date">📅 ${item.date}</span>
+                                    <span class="gallery-location">📍 ${item.location}</span>
+                                </div>
+                                <h3 class="gallery-title">${item.title}</h3>
+                                <p class="gallery-description">${item.description.substring(0, 120)}...</p>
+                                <div class="gallery-footer">
+                                    <span class="gallery-view">Детальніше →</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                $('#galleryGrid').html(html);
+            }
+            
+            renderGallery();
+        });
+
+        // Open modal
+        function openModal(id) {
+            const item = galleryData.find(g => g.id === id);
+            if (item) {
+                $('#modalImage').css('background', item.gradient).html(`<div class="gallery-icon">${item.icon}</div>`);
+                
+                $('#modalMeta').html(`
+                    <div class="modal-meta-item">
+                        <span>📅</span>
+                        <strong>${item.date}</strong>
+                    </div>
+                    <div class="modal-meta-item">
+                        <span>📍</span>
+                        <strong>${item.location}</strong>
+                    </div>
+                `);
+                
+                $('#modalTitle').text(item.title);
+                $('#modalDescription').text(item.description);
+                $('#galleryModal').addClass('active');
+                $('body').css('overflow', 'hidden');
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            $('#galleryModal').removeClass('active');
+            $('body').css('overflow', 'auto');
+        }
+
+        // Close modal on overlay click
+        $(document).on('click', '.modal', function(e) {
+            if ($(e.target).hasClass('modal')) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        $(document).on('keydown', function(e) {
+            if (e.keyCode === 27 && $('#galleryModal').hasClass('active')) {
+                closeModal();
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
