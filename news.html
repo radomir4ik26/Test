@@ -166,15 +166,15 @@
                     </div>
                     
                     <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
-                        <h3 class="footer-title">Корисні ресурси</h3>
-                        <ul class="footer-links">
-                            <li><a href="https://buh.ligazakon.net/" target="_blank" rel="noopener">Liga:Zakon Бухгалтерія</a></li>
-                            <li><a href="https://www.golovbuh.com.ua/" target="_blank" rel="noopener">Головбух</a></li>
-                            <li><a href="https://uteka.ua/" target="_blank" rel="noopener">UTEKA</a></li>
-                            <li><a href="https://buhgalter911.com/" target="_blank" rel="noopener">Бухгалтер 911</a></li>
-                            <li><a href="https://tax.gov.ua/" target="_blank" rel="noopener">ДПС України</a></li>
-                        </ul>
-                    </div>
+    <h3 class="footer-title">Корисні ресурси</h3>
+    <ul class="footer-links">
+        <li><a href="https://buh.ligazakon.net/" target="_blank" rel="noopener">Liga:Zakon Бухгалтерія</a></li>
+        <li><a href="https://www.golovbuh.com.ua/" target="_blank" rel="noopener">Головбух</a></li>
+        <li><a href="https://uteka.ua/" target="_blank" rel="noopener">UTEKA</a></li>
+        <li><a href="https://buhgalter911.com/" target="_blank" rel="noopener">Бухгалтер 911</a></li>
+        <li><a href="https://tax.gov.ua/" target="_blank" rel="noopener">ДПС України</a></li>
+    </ul>
+</div>
                     
                     <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
                         <h3 class="footer-title">Контакти</h3>
@@ -212,95 +212,6 @@
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTop">↑</button>
-
-    <!-- Scripts -->
-    <script src="js/data.js"></script>
-    <script>
-        // ===============================================
-        // NEWS PAGE FUNCTIONALITY
-        // ===============================================
-
-        $(document).ready(function() {
-            
-            // Render news cards with links
-            function renderNews(container, data, limit = null) {
-                const newsToShow = limit ? data.slice(0, limit) : data;
-                let html = '';
-
-                newsToShow.forEach((news, index) => {
-                    const newsLink = news.link || '#';
-                    const hasLink = news.link && news.link !== '#';
-                    
-                    html += `
-                        <div class="news-card variant-${news.variant}" data-aos="fade-up" data-aos-delay="${index * 50}">
-                            <div class="news-image">
-                                <div class="news-icon">${news.icon}</div>
-                            </div>
-                            <div class="news-content">
-                                <div class="news-meta">
-                                    <span class="news-date">📅 ${news.date}</span>
-                                    <span class="news-category">${news.category}</span>
-                                </div>
-                                <h3 class="news-title">${news.title}</h3>
-                                <p class="news-excerpt">${news.excerpt}</p>
-                                <div class="news-footer">
-                                    <span class="news-author">✍️ ${news.author}</span>
-                                    ${hasLink ? 
-                                        `<a href="${newsLink}" target="_blank" rel="noopener" class="news-read-more" onclick="event.stopPropagation()">
-                                            Читати на сайті →
-                                        </a>` :
-                                        `<span class="news-read-more" style="opacity: 0.5; cursor: default;">
-                                            Скоро буде доступно
-                                        </span>`
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-
-                $(container).html(html);
-                
-                // Re-initialize AOS for new elements
-                if (typeof AOS !== 'undefined') {
-                    AOS.refresh();
-                }
-            }
-
-            // Render all news
-            renderNews('#allNewsGrid', newsData);
-
-            // Filter news by category
-            $('.filter-btn').on('click', function() {
-                $('.filter-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                const category = $(this).data('category');
-                
-                if (category === 'all') {
-                    renderNews('#allNewsGrid', newsData);
-                } else {
-                    const filtered = newsData.filter(news => news.category === category);
-                    renderNews('#allNewsGrid', filtered);
-                }
-                
-                // Smooth scroll to news grid
-                $('html, body').animate({
-                    scrollTop: $('#allNewsGrid').offset().top - 150
-                }, 500);
-            });
-
-            // Click on news card to open link
-            $(document).on('click', '.news-card', function(e) {
-                if (!$(e.target).hasClass('news-read-more') && !$(e.target).closest('.news-read-more').length) {
-                    const link = $(this).find('.news-read-more').attr('href');
-                    if (link && link !== '#') {
-                        window.open(link, '_blank');
-                    }
-                }
-            });
-        });
-    </script>
-    <script src="js/main.js"></script>
 </body>
+
 </html>
