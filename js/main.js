@@ -180,23 +180,32 @@ $(document).ready(function() {
             if (statsTop < windowBottom - 100) {
                 counterAnimated = true;
                 $('.stat-number').each(function() {
-                    const text = $(this).text().replace('+', '').replace('%', '');
+                    const $element = $(this);
+                    const originalText = $element.text();
+                    const text = originalText.replace(/[^\d]/g, ''); // Залишаємо лише цифри
+                    const suffix = originalText.match(/[\+\%]$/)?.[0] || ''; // Зберігаємо суфікс (+ або %)
                     const target = parseInt(text);
+
                     if (!isNaN(target)) {
-                        $(this).text('0');
-                        animateCounter($(this), target);
+                        $element.text('0');
                         
-                        // Add back suffix
-                        if ($(this).text().includes('+')) {
-                            setTimeout(() => {
-                                $(this).text($(this).text() + '+');
-                            }, 2000);
-                        }
-                        if ($(this).text().includes('%')) {
-                            setTimeout(() => {
-                                $(this).text($(this).text() + '%');
-                            }, 2000);
-                        }
+                        // Використовуємо функцію animateCounter з новою логікою
+                        $({ countNum: 0 }).animate({
+                            countNum: target
+                        }, {
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function() {
+                                $element.text(Math.floor(this.countNum));
+                            },
+                            complete: function() {
+                                $element.text(target);
+                                // Тут повертаємо суфікс після завершення анімації
+                                if (suffix) {
+                                    $element.text($element.text() + suffix);
+                                }
+                            }
+                        });
                     }
                 });
             }
